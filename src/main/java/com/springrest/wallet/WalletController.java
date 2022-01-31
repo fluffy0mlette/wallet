@@ -60,7 +60,7 @@ public class WalletController {
 	}
 	
 	@PostMapping("/reInitialize")
-	public HttpStatus reInitialize() throws FileNotFoundException
+	public ResponseEntity<String> reInitialize() throws FileNotFoundException
 	{	
 		File myFile = new File("/Users/fluffy/Downloads/wallet/initialData.txt");
 		Scanner s1 = null;
@@ -121,7 +121,7 @@ public class WalletController {
 			custList.put(Integer.parseInt(str), bal);
 		}
 
-		return HttpStatus.CREATED;	
+		return ResponseEntity.status(HttpStatus.CREATED).body("CREATED");	
 	}
 	
 	@EventListener(ApplicationReadyEvent.class)
