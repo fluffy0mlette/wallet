@@ -62,7 +62,9 @@ public class WalletController {
 	@PostMapping("/reInitialize")
 	public ResponseEntity<String> reInitialize() throws FileNotFoundException
 	{	
-		File myFile = new File("/Users/fluffy/Downloads/wallet/initialData.txt");
+		//File myFile = new File("/Users/fluffy/Downloads/wallet/initialData.txt");
+		String basePath = new File("").getAbsolutePath();
+		File myFile = new File(basePath + "/initialData.txt");
 		Scanner s1 = null;
 		try 
 		{
@@ -127,7 +129,9 @@ public class WalletController {
 	@EventListener(ApplicationReadyEvent.class)
 	public HttpStatus StartUp() throws FileNotFoundException
 	{
-		File myFile = new File("/Users/fluffy/Downloads/wallet/initialData.txt");
+		//File myFile = new File("/Users/fluffy/Downloads/wallet/initialData.txt");
+		String basePath = new File("Dummy").getAbsolutePath();
+		File myFile = new File(basePath + "/initialData.txt");
 		Scanner s1 = null;
 		try 
 		{
